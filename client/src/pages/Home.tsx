@@ -15,11 +15,12 @@ import {
   Zap,
 } from "lucide-react";
 
+const assetBase = import.meta.env.DEV ? "/manus-storage" : "/assets";
 const img = {
-  hero: "/assets/metal-hero.jpg",
-  cnc: "/assets/metal-cnc.jpg",
-  maintenance: "/assets/metal-maintenance.jpg",
-  fabrication: "/assets/metal-fabrication.jpg",
+  hero: `${assetBase}/metal-hero_7f5c0c50.jpg`,
+  cnc: `${assetBase}/metal-cnc_f52a6140.jpg`,
+  maintenance: `${assetBase}/metal-maintenance_23869f7c.jpg`,
+  fabrication: `${assetBase}/metal-fabrication_ff45b2d7.jpg`,
 };
 
 const faqs = [
