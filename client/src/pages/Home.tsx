@@ -36,6 +36,9 @@ export default function Home() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const message = `Hola Hugo, vi la web de Servicios Integrales. Soy ${formData.get("name")} y necesito cotizar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
+    window.open(`https://wa.me/5492615384243?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
 
@@ -72,7 +75,7 @@ export default function Home() {
                   {sent ? <div className="success-state"><div className="success-icon"><Check /></div><h3>Recibimos tu consulta.</h3><p>Un especialista se pondrá en contacto para entender el alcance y darte un próximo paso concreto.</p><button className="text-button" onClick={() => setSent(false)}>Enviar otra consulta</button></div> : <form onSubmit={handleSubmit}>
                     <h2>¿Qué necesitás resolver?</h2><p className="form-intro">Contanos brevemente el problema. Te respondemos con criterio técnico, no con una respuesta genérica.</p>
                     <label>Nombre / Empresa<input required name="name" placeholder="Ej. Juan Pérez · Bodega Norte" /></label>
-                    <label>WhatsApp<input required name="phone" placeholder="+54 9 261..." /></label>
+                    <label>WhatsApp de contacto<input required name="phone" inputMode="tel" placeholder="+54 9 261 538 4243" /></label>
                     <label>Descripción breve<textarea required name="message" rows={3} placeholder="Necesito fabricar / reparar..." /></label>
                     <button className="btn btn-dark w-100" type="submit">Cotizar mi proyecto en 24h <ArrowRight size={17} /></button><small><ShieldCheck size={13} /> Tus datos se usan solo para responder tu consulta.</small>
                   </form>}
@@ -101,8 +104,8 @@ export default function Home() {
 
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow light"><span className="eyebrow-line" /> ¿TENÉS UN PROYECTO EN MENTE?</div><h2>Hablemos de cómo<br /><em>ponerlo en marcha.</em></h2></div><a className="btn btn-safety btn-lg" href="#cotizar">Cotizar mi proyecto <ArrowRight size={18} /></a></div></section>
       </main>
-      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.</p><a className="whatsapp-link" href="https://wa.me/5492610000000?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
-      <a className="whatsapp-float" href="https://wa.me/5492610000000?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
+      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
+      <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
     </div>
   );
 }
