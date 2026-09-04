@@ -166,3 +166,12 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 .client-names span { min-height: 68px !important; border: 0 !important; border-bottom: 1px solid var(--line) !important; color: var(--steel) !important; display: flex !important; align-items: center; justify-content: flex-start; padding: 0 13px !important; font: 800 11px "Space Grotesk", sans-serif !important; letter-spacing: .07em !important; background: transparent !important; }
 .client-names span:nth-child(odd) { border-right: 1px solid var(--line) !important; }
 @media (max-width: 767px) { .brand-logo { width: 135px; height: 50px; } .client-names span { min-height: 56px !important; font-size: 9px !important; padding: 0 8px !important; } }
+
+/* Client marquee */
+.client-placeholder { overflow: hidden; }
+.client-names { display: flex !important; width: max-content; min-width: max-content; gap: 0 !important; border-top: 1px solid var(--line); margin-top: 18px !important; animation: client-marquee 28s linear infinite; }
+.client-names:hover { animation-play-state: paused; }
+.client-names span { flex: 0 0 auto; width: 168px; min-height: 68px !important; border: 0 !important; border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line) !important; }
+@keyframes client-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 767px) { .client-names { animation-duration: 22s; } .client-names span { width: 138px; min-height: 56px !important; } }
+@media (prefers-reduced-motion: reduce) { .client-names { animation: none; flex-wrap: wrap; width: 100%; min-width: 0; } .client-names span { width: 50%; } }
