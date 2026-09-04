@@ -16,10 +16,10 @@ import {
 } from "lucide-react";
 
 const img = {
-  hero: "/manus-storage/metal-hero_7f5c0c50.jpg",
-  cnc: "/manus-storage/metal-cnc_f52a6140.jpg",
-  maintenance: "/manus-storage/metal-maintenance_23869f7c.jpg",
-  fabrication: "/manus-storage/metal-fabrication_ff45b2d7.jpg",
+  hero: "/assets/metal-hero.jpg",
+  cnc: "/assets/metal-cnc.jpg",
+  maintenance: "/assets/metal-maintenance.jpg",
+  fabrication: "/assets/metal-fabrication.jpg",
 };
 
 const faqs = [
