@@ -44,7 +44,7 @@ export default function Home() {
       <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>MENDOZA · SERVICIOS INDUSTRIALES B2B</span><span className="topline-right"><Clock3 size={14} /> Respuesta en menos de 2 horas hábiles</span></div></div>
       <header className="nav-wrap">
         <div className="container nav-inner">
-          <a className="brand" href="#inicio" aria-label="Mecánica Andina inicio"><span className="brand-mark"><Factory size={20} /></span><span>MECÁNICA<br /><em>ANDINA</em></span></a>
+          <a className="brand" href="#inicio" aria-label="Servicios Integrales inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">{menuOpen ? <X /> : <span className="hamburger">☰</span>}</button>
           <nav className={menuOpen ? "nav-links open" : "nav-links"}>
             <a href="#soluciones" onClick={() => setMenuOpen(false)}>Soluciones</a><a href="#proceso" onClick={() => setMenuOpen(false)}>Cómo trabajamos</a><a href="#caso" onClick={() => setMenuOpen(false)}>Caso de éxito</a>
@@ -101,7 +101,7 @@ export default function Home() {
 
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow light"><span className="eyebrow-line" /> ¿TENÉS UN PROYECTO EN MENTE?</div><h2>Hablemos de cómo<br /><em>ponerlo en marcha.</em></h2></div><a className="btn btn-safety btn-lg" href="#cotizar">Cotizar mi proyecto <ArrowRight size={18} /></a></div></section>
       </main>
-      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Factory size={20} /></span><span>MECÁNICA<br /><em>ANDINA</em></span></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.</p><a className="whatsapp-link" href="https://wa.me/5492610000000?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
+      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.</p><a className="whatsapp-link" href="https://wa.me/5492610000000?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
       <a className="whatsapp-float" href="https://wa.me/5492610000000?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
     </div>
   );
