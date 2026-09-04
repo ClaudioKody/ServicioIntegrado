@@ -4,7 +4,6 @@ import {
   Check,
   ChevronDown,
   Clock3,
-  Factory,
   Gauge,
   HardHat,
   MessageCircle,
@@ -16,6 +15,7 @@ import {
 } from "lucide-react";
 
 const assetBase = import.meta.env.DEV ? "/manus-storage" : "/assets";
+const logoSrc = import.meta.env.DEV ? "/manus-storage/sint-logo_7926528a.jpg" : "/assets/sint-logo.jpg";
 const img = {
   hero: `${assetBase}/metal-hero_7f5c0c50.jpg`,
   cnc: `${assetBase}/metal-cnc_f52a6140.jpg`,
@@ -48,7 +48,7 @@ export default function Home() {
       <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>MENDOZA · SERVICIOS INDUSTRIALES B2B</span><span className="topline-right"><Clock3 size={14} /> Respuesta en menos de 2 horas hábiles</span></div></div>
       <header className="nav-wrap">
         <div className="container nav-inner">
-          <a className="brand" href="#inicio" aria-label="Servicios Integrales inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a>
+          <a className="brand" href="#inicio" aria-label="SINT Electromecánica - Servicio Integrado"><img className="brand-logo" src={logoSrc} alt="SINT Electromecánica - Servicio Integrado" /></a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">{menuOpen ? <X /> : <span className="hamburger">☰</span>}</button>
           <nav className={menuOpen ? "nav-links open" : "nav-links"}>
             <a href="#soluciones" onClick={() => setMenuOpen(false)}>Soluciones</a><a href="#proceso" onClick={() => setMenuOpen(false)}>Cómo trabajamos</a><a href="#caso" onClick={() => setMenuOpen(false)}>Caso de éxito</a>
@@ -99,13 +99,13 @@ export default function Home() {
 
         <section className="gallery-section section-space"><div className="container"><div className="section-heading-row"><div><div className="eyebrow"><span className="eyebrow-line" /> TRABAJOS Y CAPACIDADES</div><h2 className="display-title">Lo que hacemos,<br /><em>se puede ver.</em></h2></div><p className="gallery-note">Esta galería está lista para sumar tus fotos reales de trabajos en proceso: inicio, avance y entrega final.</p></div><div className="gallery-grid"><img src={img.cnc} alt="Mecanizado CNC de precisión" /><img src={img.fabrication} alt="Fabricación de estructuras metálicas" /><div className="gallery-caption"><span>CAPACIDADES</span><strong>Del plano<br />a la planta.</strong><a href="#cotizar">Sumar mi proyecto <ArrowRight size={16} /></a></div></div></div></section>
 
-        <section className="clients-section"><div className="container clients-inner"><div><div className="eyebrow"><span className="eyebrow-line" /> CLIENTES</div><h2 className="display-title">Tu próxima marca<br /><em>puede estar acá.</em></h2><p>Espacio preparado para sumar los nombres de las empresas con las que trabajamos. Cuando tengas el dato, lo actualizamos sin cambiar la estructura.</p></div><div className="client-placeholder"><span>LOGOS DE CLIENTES</span><div><span>PRÓXIMAMENTE</span><span>PRÓXIMAMENTE</span><span>PRÓXIMAMENTE</span></div></div></div></section>
+        <section className="clients-section"><div className="container clients-inner"><div><div className="eyebrow"><span className="eyebrow-line" /> CLIENTES</div><h2 className="display-title">Empresas que ya<br /><em>confían en nosotros.</em></h2><p>Una selección de empresas y organizaciones que han confiado en nuestra capacidad técnica y respuesta industrial.</p></div><div className="client-placeholder"><span>EMPRESAS QUE CONFÍAN EN NUESTRO TRABAJO</span><div className="client-names"><span>AGROISME</span><span>EDEMSA</span><span>ENER SHOP</span><span>JUGOS AUSTRALES</span><span>TELECOM</span><span>BODEGAS PULENTA</span><span>MOLINOS FLORENCIA</span><span>COOPERATIVA TUP</span></div></div></div></section>
 
         <section className="faq-section section-space"><div className="container"><div className="row"><div className="col-lg-4"><div className="eyebrow"><span className="eyebrow-line" /> PREGUNTAS FRECUENTES</div><h2 className="display-title">Antes de<br /><em>empezar.</em></h2></div><div className="col-lg-7 offset-lg-1 faq-list">{faqs.map(([question, answer], index) => <div className={openFaq === index ? "faq-item open" : "faq-item"} key={question}><button onClick={() => setOpenFaq(openFaq === index ? -1 : index)}><span>{question}</span><ChevronDown size={19} /></button>{openFaq === index && <p>{answer}</p>}</div>)}</div></div></div></section>
 
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow light"><span className="eyebrow-line" /> ¿TENÉS UN PROYECTO EN MENTE?</div><h2>Hablemos de cómo<br /><em>ponerlo en marcha.</em></h2></div><a className="btn btn-safety btn-lg" href="#cotizar">Cotizar mi proyecto <ArrowRight size={18} /></a></div></section>
       </main>
-      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><span className="brand-mark"><Factory size={20} /></span><span>SERVICIOS<br /><em>INTEGRALES</em></span></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
+      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="SINT Electromecánica - Servicio Integrado" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
       <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
     </div>
   );
