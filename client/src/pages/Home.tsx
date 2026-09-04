@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const assetBase = import.meta.env.DEV ? "/manus-storage" : "/assets";
-const logoSrc = import.meta.env.DEV ? "/manus-storage/sint-logo_7926528a.jpg" : "/assets/sint-logo.jpg";
+const logoSrc = import.meta.env.DEV ? "/manus-storage/sint-logo-transparent_c4884d11.png" : "/assets/sint-logo-transparent.png";
 const img = {
   hero: `${assetBase}/metal-hero_7f5c0c50.jpg`,
   cnc: `${assetBase}/metal-cnc_f52a6140.jpg`,
