@@ -38,7 +38,7 @@ export default function Home() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const message = `Hola Hugo, vi la web de Servicios Integrales. Soy ${formData.get("name")} y necesito cotizar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
+    const message = `Hola Hugo, vi la web de Servicio Integrado. Soy ${formData.get("name")} y necesito cotizar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
     window.open(`https://wa.me/5492615384243?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
