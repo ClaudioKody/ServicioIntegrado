@@ -38,7 +38,7 @@ export default function Home() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const message = `Hola Hugo, vi la web de Servicio Integrado. Soy ${formData.get("name")} y necesito cotizar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
+    const message = `Hola Hugo, vi la web de SINT Electromecánica - Servicio Integrado. Soy ${formData.get("name")} y necesito cotizar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
     window.open(`https://wa.me/5492615384243?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
@@ -105,8 +105,8 @@ export default function Home() {
 
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow light"><span className="eyebrow-line" /> ¿TENÉS UN PROYECTO EN MENTE?</div><h2>Hablemos de cómo<br /><em>ponerlo en marcha.</em></h2></div><a className="btn btn-safety btn-lg" href="#cotizar">Cotizar mi proyecto <ArrowRight size={18} /></a></div></section>
       </main>
-      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="SINT Electromecánica - Servicio Integrado" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
-      <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20su%20web%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
+      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="SINT Electromecánica - Servicio Integrado" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20SINT%20Electromec%C3%A1nica%20-%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Urgencias de mantenimiento 24/7</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
+      <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20SINT%20Electromec%C3%A1nica%20-%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>Urgencias 24/7</span></a>
     </div>
   );
 }
