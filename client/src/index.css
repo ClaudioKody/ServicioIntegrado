@@ -197,3 +197,31 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 @media (prefers-reduced-motion: reduce) { .client-track-forward, .client-track-reverse { animation: none; transform: none; flex-wrap: wrap; width: 100%; } .client-marquee { mask-image: none; } .client-pill { min-width: calc(50% - 6px); } }
 
 .clients-proof svg, .client-pill svg { flex: 0 0 auto; color: var(--yellow); stroke: currentColor; }
+
+/* Portfolio slots and responsive polish */
+.gallery-card { position: relative; overflow: hidden; min-height: 395px; margin: 0; background: var(--steel-dark); }
+.gallery-card img { transition: transform .45s var(--ease-out), filter .45s var(--ease-out); }
+.gallery-card:hover img { transform: scale(1.035); filter: saturate(1) contrast(1.03); }
+.gallery-card figcaption { position: absolute; inset: auto 0 0; padding: 22px 24px; color: white; background: linear-gradient(transparent, rgba(9,22,29,.94)); transform: translateY(7px); transition: transform .25s var(--ease-out); }
+.gallery-card:hover figcaption { transform: translateY(0); }
+.gallery-card figcaption span { color: var(--yellow); font: 800 9px "Manrope", sans-serif; letter-spacing: .15em; }
+.gallery-card figcaption strong { display: block; margin-top: 8px; font: 700 28px/.94 "Space Grotesk", sans-serif; letter-spacing: -.05em; }
+.gallery-caption p { max-width: 230px; margin: -12px 0 0; color: rgba(17,43,58,.72); font-size: 11px; line-height: 1.55; }
+@media (max-width: 767px) {
+  .hero-content { padding-top: 54px; padding-bottom: 68px; }
+  .quote-card { padding: 22px; }
+  .quote-card h2 { font-size: 25px; }
+  .trust-inner { min-height: auto; }
+  .section-space { padding: 64px 0; }
+  .display-title { font-size: clamp(38px, 11vw, 47px); }
+  .pain-card { min-height: auto; padding-bottom: 20px; }
+  .process-item { gap: 15px; padding: 20px 0; }
+  .process-item h3 { font-size: 18px; }
+  .case-copy { padding: 32px 20px; }
+  .gallery-grid { gap: 10px; }
+  .gallery-card { min-height: 285px; }
+  .gallery-grid img { height: 285px; }
+  .gallery-caption { min-height: 250px; padding: 28px 24px; }
+  .gallery-caption strong { font-size: 33px; }
+}
+@media (prefers-reduced-motion: reduce) { .gallery-card img, .gallery-card figcaption { transition: none; } .gallery-card:hover img { transform: none; } }
