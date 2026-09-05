@@ -224,6 +224,12 @@ export default defineConfig({
     port: 3000,
     strictPort: false, // Will find next available port if 3000 is busy
     host: true,
+    // WebDev exposes the dev server through HTTPS; make Vite's browser client
+    // use the public secure WebSocket instead of localhost:3000.
+    hmr: {
+      protocol: "wss",
+      clientPort: 443,
+    },
     allowedHosts: [
       ".manuspre.computer",
       ".manus.computer",
