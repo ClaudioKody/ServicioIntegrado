@@ -14,14 +14,20 @@ import {
   Zap,
 } from "lucide-react";
 
-const assetBase = import.meta.env.DEV ? "/manus-storage" : "/assets";
 const logoSrc = import.meta.env.DEV ? "/manus-storage/sint-logo-transparent_c4884d11.png" : "/assets/sint-logo-transparent.png";
-const img = {
-  hero: `${assetBase}/metal-hero_7f5c0c50.jpg`,
-  cnc: `${assetBase}/metal-cnc_f52a6140.jpg`,
-  maintenance: `${assetBase}/metal-maintenance_23869f7c.jpg`,
-  fabrication: `${assetBase}/metal-fabrication_ff45b2d7.jpg`,
-};
+const img = import.meta.env.DEV
+  ? {
+      hero: "/manus-storage/metal-hero_7f5c0c50.jpg",
+      cnc: "/manus-storage/metal-cnc_f52a6140.jpg",
+      maintenance: "/manus-storage/metal-maintenance_23869f7c.jpg",
+      fabrication: "/manus-storage/metal-fabrication_ff45b2d7.jpg",
+    }
+  : {
+      hero: "/assets/metal-hero.jpg",
+      cnc: "/assets/metal-cnc.jpg",
+      maintenance: "/assets/metal-maintenance.jpg",
+      fabrication: "/assets/metal-fabrication.jpg",
+    };
 
 const faqs = [
   ["¿En cuánto tiempo responden una consulta?", "Respondemos en menos de 2 horas hábiles. Si el pedido es urgente, podés escribirnos por WhatsApp para coordinar una primera evaluación inmediata."],
