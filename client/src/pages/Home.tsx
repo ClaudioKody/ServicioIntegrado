@@ -30,29 +30,29 @@ const img = import.meta.env.DEV
       fabrication: "/assets/metal-fabrication.jpg",
     };
 
-const portfolioBase = import.meta.env.DEV ? "/manus-storage" : "/assets/portfolio";
+const portfolioImage = (fileName: string, storageFileName: string) => import.meta.env.DEV ? `/manus-storage/${storageFileName}` : `/assets/portfolio/${fileName}`;
 
 const portfolioItems = [
-  { image: `${portfolioBase}/obra-01_2e9a7978.webp`, category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
-  { image: `${portfolioBase}/obra-02_ba343550.webp`, category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
-  { image: `${portfolioBase}/obra-03_493209cc.webp`, category: "tableros", label: "Tableros y control", title: "Tablero de comando" },
-  { image: `${portfolioBase}/obra-04_84dcf1a6.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Cañerías y conexiones" },
-  { image: `${portfolioBase}/obra-05_878f8e48.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Instalación de bombeo" },
-  { image: `${portfolioBase}/obra-06_332fd643.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Conjunto de válvulas" },
-  { image: `${portfolioBase}/obra-07_0b94e960.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Conjunto de bombeo" },
-  { image: `${portfolioBase}/obra-08_af2c1810.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Cañerías de proceso" },
-  { image: `${portfolioBase}/obra-09_1559932e.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Instalación exterior" },
-  { image: `${portfolioBase}/obra-10_36f35d8e.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipos de generación" },
-  { image: `${portfolioBase}/obra-11_cb6475d1.webp`, category: "tableros", label: "Tableros y control", title: "Protecciones eléctricas" },
-  { image: `${portfolioBase}/obra-12_94f5679b.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipamiento industrial" },
-  { image: `${portfolioBase}/obra-13_f7637fd1.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Bombas y conexiones" },
-  { image: `${portfolioBase}/obra-14_8c7ae667.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Tendido de cañerías" },
-  { image: `${portfolioBase}/obra-15_4292f358.webp`, category: "tableros", label: "Tableros y control", title: "Gabinete de control" },
-  { image: `${portfolioBase}/obra-16_d54ae3d0.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Sala de máquinas" },
-  { image: `${portfolioBase}/obra-17_e23b81a5.webp`, category: "instalaciones", label: "Instalaciones industriales", title: "Conexiones de servicio" },
-  { image: `${portfolioBase}/obra-18_47b13200.webp`, category: "tableros", label: "Tableros y control", title: "Tablero de protecciones" },
-  { image: `${portfolioBase}/obra-19_9a35da07.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Bomba industrial" },
-  { image: `${portfolioBase}/obra-20_32e52a66.webp`, category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipos de bombeo" },
+  { image: portfolioImage("obra-01.webp", "obra-01_2e9a7978.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
+  { image: portfolioImage("obra-02.webp", "obra-02_ba343550.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
+  { image: portfolioImage("obra-03.webp", "obra-03_493209cc.webp"), category: "tableros", label: "Tableros y control", title: "Tablero de comando" },
+  { image: portfolioImage("obra-04.webp", "obra-04_84dcf1a6.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Cañerías y conexiones" },
+  { image: portfolioImage("obra-05.webp", "obra-05_878f8e48.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Instalación de bombeo" },
+  { image: portfolioImage("obra-06.webp", "obra-06_332fd643.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Conjunto de válvulas" },
+  { image: portfolioImage("obra-07.webp", "obra-07_0b94e960.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Conjunto de bombeo" },
+  { image: portfolioImage("obra-08.webp", "obra-08_af2c1810.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Cañerías de proceso" },
+  { image: portfolioImage("obra-09.webp", "obra-09_1559932e.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Instalación exterior" },
+  { image: portfolioImage("obra-10.webp", "obra-10_36f35d8e.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipos de generación" },
+  { image: portfolioImage("obra-11.webp", "obra-11_cb6475d1.webp"), category: "tableros", label: "Tableros y control", title: "Protecciones eléctricas" },
+  { image: portfolioImage("obra-12.webp", "obra-12_94f5679b.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipamiento industrial" },
+  { image: portfolioImage("obra-13.webp", "obra-13_f7637fd1.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Bombas y conexiones" },
+  { image: portfolioImage("obra-14.webp", "obra-14_8c7ae667.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Tendido de cañerías" },
+  { image: portfolioImage("obra-15.webp", "obra-15_4292f358.webp"), category: "tableros", label: "Tableros y control", title: "Gabinete de control" },
+  { image: portfolioImage("obra-16.webp", "obra-16_d54ae3d0.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Sala de máquinas" },
+  { image: portfolioImage("obra-17.webp", "obra-17_e23b81a5.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Conexiones de servicio" },
+  { image: portfolioImage("obra-18.webp", "obra-18_47b13200.webp"), category: "tableros", label: "Tableros y control", title: "Tablero de protecciones" },
+  { image: portfolioImage("obra-19.webp", "obra-19_9a35da07.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Bomba industrial" },
+  { image: portfolioImage("obra-20.webp", "obra-20_32e52a66.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipos de bombeo" },
 ];
 
 const faqs = [
