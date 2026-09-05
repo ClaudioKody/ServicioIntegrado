@@ -15,8 +15,9 @@ import {
   Zap,
 } from "lucide-react";
 
-const logoSrc = import.meta.env.DEV ? "/manus-storage/sint-logo-transparent_c4884d11.png" : "/assets/sint-logo-transparent.png";
-const img = import.meta.env.DEV
+const isWebDevPreview = typeof window !== "undefined" && window.location.hostname.includes("manus.computer");
+const logoSrc = isWebDevPreview ? "/manus-storage/sint-logo-transparent_c4884d11.png" : "/assets/sint-logo-transparent.png";
+const img = isWebDevPreview
   ? {
       hero: "/manus-storage/metal-hero_7f5c0c50.jpg",
       cnc: "/manus-storage/metal-cnc_f52a6140.jpg",
@@ -30,7 +31,7 @@ const img = import.meta.env.DEV
       fabrication: "/assets/metal-fabrication.jpg",
     };
 
-const portfolioImage = (fileName: string, storageFileName: string) => import.meta.env.DEV ? `/manus-storage/${storageFileName}` : `/assets/portfolio/${fileName}`;
+const portfolioImage = (fileName: string, storageFileName: string) => isWebDevPreview ? `/manus-storage/${storageFileName}` : `/assets/portfolio/${fileName}`;
 
 const portfolioItems = [
   { image: portfolioImage("obra-01.webp", "obra-01_2e9a7978.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
