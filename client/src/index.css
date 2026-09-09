@@ -306,3 +306,9 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 .clients-section .client-pill { background: #101317; border-color: rgba(255,121,0,.28); box-shadow: 0 12px 28px rgba(0,0,0,.2); }
 .clients-section .client-pill:hover { background: #171b1f; border-color: var(--yellow); box-shadow: 0 16px 30px rgba(0,0,0,.32); }
 .clients-section .client-pill span { color: #fff; }
+
+/* Lazy-loaded portfolio imagery */
+.portfolio-card { content-visibility: auto; contain-intrinsic-size: 280px 280px; }
+.portfolio-image { display: block; width: 100%; height: 100%; object-fit: cover; background: linear-gradient(135deg, #11161a, #28333a); opacity: .18; filter: blur(10px) saturate(.55); transform: scale(1.035); transition: opacity .42s var(--ease-out), filter .52s var(--ease-out), transform .52s var(--ease-out); }
+.portfolio-image.is-loaded { opacity: 1; filter: blur(0) saturate(.9); transform: scale(1); }
+@media (prefers-reduced-motion: reduce) { .portfolio-image { transition: none; filter: none; transform: none; } .portfolio-image:not(.is-loaded) { opacity: .72; } }
