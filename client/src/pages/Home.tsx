@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const isWebDevPreview = typeof window !== "undefined" && window.location.hostname.includes("manus.computer");
-const logoSrc = "/assets/servicios-integrados-logo.jpg";
+const logoSrc = "/assets/servicios-integrados-mark.png";
 const img = isWebDevPreview
   ? {
       hero: "/manus-storage/metal-hero_7f5c0c50.jpg",
@@ -83,7 +83,7 @@ export default function Home() {
       <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>SERVICIOS INTEGRADOS · MENDOZA</span><span className="topline-right"><Clock3 size={14} /> Consultas por WhatsApp</span></div></div>
       <header className="nav-wrap">
         <div className="container nav-inner">
-          <a className="brand" href="#inicio" aria-label="SINT Electromecánica - Servicio Integrado"><img className="brand-logo" src={logoSrc} alt="Servicios Integrados" /></a>
+          <a className="brand" href="#inicio" aria-label="Servicios Integrados"><img className="brand-logo" src={logoSrc} alt="Servicios Integrados" /></a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">{menuOpen ? <X /> : <span className="hamburger">☰</span>}</button>
           <nav className={menuOpen ? "nav-links open" : "nav-links"}>
             <a href="#soluciones" onClick={() => setMenuOpen(false)}>Soluciones</a><a href="#proceso" onClick={() => setMenuOpen(false)}>Cómo trabajamos</a>
