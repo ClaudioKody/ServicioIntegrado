@@ -247,7 +247,7 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 @media (max-width: 767px) { .portfolio-filters { overflow-x: auto; flex-wrap: nowrap; margin-right: -15px; padding-right: 15px; padding-bottom: 5px; scrollbar-width: none; } .portfolio-filters::-webkit-scrollbar { display: none; } .portfolio-filters button { flex: 0 0 auto; } .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .portfolio-card { aspect-ratio: .86 / 1; } .portfolio-card figcaption { padding: 30px 10px 10px; } .portfolio-card figcaption strong { font-size: 13px; } .portfolio-note { align-items: flex-start; flex-direction: column; gap: 9px; margin-top: 22px; } .portfolio-note p { margin: 0; } }
 @media (prefers-reduced-motion: reduce) { .portfolio-card img, .portfolio-card figcaption, .portfolio-filters button { transition: none; } .portfolio-card:hover img { transform: none; } }
 
-/* Servicios Integrados brand: graphite, industrial orange and metallic gray */
+/* Servicio Integrado brand: graphite, industrial orange and metallic gray */
 :root { --yellow: #ff7900; --yellow-deep: #d95c00; --steel: #101317; --steel-dark: #07090b; --mist: #eceeeb; }
 .nav-wrap { background: #090a0c !important; color: #f4f4f2; border-bottom-color: rgba(255,121,0,.25); }
 .nav-wrap .nav-links a, .nav-wrap .brand { color: #f4f4f2; }

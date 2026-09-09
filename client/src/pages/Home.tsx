@@ -104,17 +104,17 @@ export default function Home() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const message = `Hola Hugo, vi la web de Servicios Integrados. Soy ${formData.get("name")} y necesito consultar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
+    const message = `Hola Hugo, vi la web de Servicio Integrado. Soy ${formData.get("name")} y necesito consultar: ${formData.get("message")}. Mi WhatsApp es ${formData.get("phone")}.`;
     window.open(`https://wa.me/5492615384243?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     setSent(true);
   }
 
   return (
     <div className="site-shell">
-      <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>SERVICIOS INTEGRADOS · MENDOZA</span><span className="topline-right"><Clock3 size={14} /> Consultas por WhatsApp</span></div></div>
+      <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>SERVICIO INTEGRADO · MENDOZA</span><span className="topline-right"><Clock3 size={14} /> Consultas por WhatsApp</span></div></div>
       <header className="nav-wrap">
         <div className="container nav-inner">
-          <a className="brand" href="#inicio" aria-label="Servicios Integrados"><img className="brand-logo" src={logoSrc} alt="Servicios Integrados" /></a>
+          <a className="brand" href="#inicio" aria-label="Servicio Integrado"><img className="brand-logo" src={logoSrc} alt="Servicio Integrado" /></a>
           <button className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">{menuOpen ? <X /> : <span className="hamburger">☰</span>}</button>
           <nav className={menuOpen ? "nav-links open" : "nav-links"}>
             <a href="#soluciones" onClick={() => setMenuOpen(false)}>Soluciones</a><a href="#proceso" onClick={() => setMenuOpen(false)}>Cómo trabajamos</a>
@@ -178,7 +178,7 @@ export default function Home() {
         </div>
         <button className="lightbox-nav lightbox-next" type="button" onClick={(event) => { event.stopPropagation(); setSelectedPortfolioIndex((selectedPortfolioIndex + 1) % visiblePortfolioItems.length); }} aria-label="Imagen siguiente"><ChevronRight size={30} /></button>
       </div>}
-      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="Servicios Integrados" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Hablar por WhatsApp</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
+      <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="Servicio Integrado" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Hablar por WhatsApp</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
       <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>WhatsApp</span></a>
     </div>
   );
