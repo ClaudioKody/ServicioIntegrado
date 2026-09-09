@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 @theme inline { --radius-sm: calc(var(--radius) - 4px); --radius-md: calc(var(--radius) - 2px); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) + 4px); --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring); }
-:root { --background: #f4f5f3; --foreground: #15202a; --card: #fff; --card-foreground: #15202a; --primary: #1f4c64; --primary-foreground: #f4f5f3; --border: #d6dbd8; --input: #d6dbd8; --ring: #e9b949; --radius: .5rem; --ink: #15202a; --steel: #1f4c64; --steel-dark: #112b3a; --yellow: #f2b83f; --mist: #f4f5f3; --muted: #63717a; --line: rgba(21,32,42,.14); --ease-out: cubic-bezier(.23,1,.32,1); }
+:root { --background: #eef0ed; --foreground: #15202a; --card: #f8f9f6; --card-foreground: #15202a; --primary: #1f4c64; --primary-foreground: #eef0ed; --border: #d0d6d2; --input: #d0d6d2; --ring: #e9b949; --radius: .5rem; --ink: #15202a; --steel: #1f4c64; --steel-dark: #112b3a; --yellow: #f2b83f; --mist: #eceeeb; --muted: #63717a; --line: rgba(21,32,42,.14); --ease-out: cubic-bezier(.23,1,.32,1); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--mist); color: var(--ink); font-family: "Manrope", sans-serif; }
@@ -53,7 +53,7 @@ h1 span, em { color: var(--yellow); font-style: normal; }
 .quote-card h2 { font-size: 28px; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 10px; }
 .form-intro { color: var(--muted); font-size: 12px; line-height: 1.6; margin-bottom: 20px; }
 .quote-card label { display: block; font-size: 10px; font-weight: 800; letter-spacing: .05em; margin-bottom: 12px; }
-.quote-card input, .quote-card textarea { width: 100%; margin-top: 6px; border: 1px solid var(--border); background: white; padding: 11px 12px; font: 12px "Manrope", sans-serif; outline: none; border-radius: 0; }
+.quote-card input, .quote-card textarea { width: 100%; margin-top: 6px; border: 1px solid var(--border); background: #f8f9f6; padding: 11px 12px; font: 12px "Manrope", sans-serif; outline: none; border-radius: 0; }
 .quote-card input:focus, .quote-card textarea:focus { border-color: var(--steel); box-shadow: 0 0 0 3px rgba(31,76,100,.1); }
 .quote-card small { display: flex; gap: 5px; align-items: center; justify-content: center; color: var(--muted); font-size: 9px; margin-top: 13px; }
 .success-state { padding: 22px 4px 17px; text-align: center; }
@@ -101,7 +101,7 @@ h1 span, em { color: var(--yellow); font-style: normal; }
 .service-card.active p { color: rgba(21,32,42,.76); }
 .service-card a { display: inline-flex; gap: 8px; align-items: center; margin-top: 10px; font-size: 11px; font-weight: 800; color: var(--yellow); }
 .service-card.active a { color: var(--steel-dark); }
-.process-section { background: #fff; }
+.process-section { background: #e7eae7; }
 .process-list { border-top: 1px solid var(--line); margin-top: 15px; }
 .process-item { display: flex; gap: 33px; padding: 26px 0; border-bottom: 1px solid var(--line); }
 .process-item > span { color: var(--yellow); background: var(--steel); min-width: 38px; height: 38px; display: grid; place-items: center; font: 700 12px "Space Grotesk", sans-serif; }
@@ -130,7 +130,7 @@ h1 span, em { color: var(--yellow); font-style: normal; }
 .gallery-caption span { font: 800 10px "Manrope", sans-serif; letter-spacing: .14em; color: var(--steel-dark); }
 .gallery-caption strong { font: 700 38px/.95 "Space Grotesk", sans-serif; letter-spacing: -.06em; color: var(--steel-dark); }
 .gallery-caption a { display: inline-flex; gap: 8px; align-items: center; color: var(--steel-dark); font-size: 11px; font-weight: 800; }
-.clients-section { background: #fff; padding: 100px 0; }
+.clients-section { background: #e4e7e4; padding: 100px 0; }
 .clients-inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
 .clients-inner p { color: var(--muted); font-size: 13px; line-height: 1.7; max-width: 400px; margin-top: 25px; }
 .client-placeholder { border-left: 1px solid var(--line); padding-left: 50px; }
@@ -248,7 +248,7 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 @media (prefers-reduced-motion: reduce) { .portfolio-card img, .portfolio-card figcaption, .portfolio-filters button { transition: none; } .portfolio-card:hover img { transform: none; } }
 
 /* Servicios Integrados brand: graphite, industrial orange and metallic gray */
-:root { --yellow: #ff7900; --yellow-deep: #d95c00; --steel: #101317; --steel-dark: #07090b; --mist: #f2f2f0; }
+:root { --yellow: #ff7900; --yellow-deep: #d95c00; --steel: #101317; --steel-dark: #07090b; --mist: #eceeeb; }
 .nav-wrap { background: #090a0c !important; color: #f4f4f2; border-bottom-color: rgba(255,121,0,.25); }
 .nav-wrap .nav-links a, .nav-wrap .brand { color: #f4f4f2; }
 .brand-logo { width: 112px; height: 72px; object-fit: contain; mix-blend-mode: screen; }
