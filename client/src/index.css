@@ -246,3 +246,16 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 @media (max-width: 991px) { .portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 767px) { .portfolio-filters { overflow-x: auto; flex-wrap: nowrap; margin-right: -15px; padding-right: 15px; padding-bottom: 5px; scrollbar-width: none; } .portfolio-filters::-webkit-scrollbar { display: none; } .portfolio-filters button { flex: 0 0 auto; } .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .portfolio-card { aspect-ratio: .86 / 1; } .portfolio-card figcaption { padding: 30px 10px 10px; } .portfolio-card figcaption strong { font-size: 12px; } .portfolio-note { align-items: flex-start; flex-direction: column; gap: 9px; margin-top: 22px; } .portfolio-note p { margin: 0; } }
 @media (prefers-reduced-motion: reduce) { .portfolio-card img, .portfolio-card figcaption, .portfolio-filters button { transition: none; } .portfolio-card:hover img { transform: none; } }
+
+/* Servicios Integrados brand: graphite, industrial orange and metallic gray */
+:root { --yellow: #ff7900; --yellow-deep: #d95c00; --steel: #101317; --steel-dark: #07090b; --mist: #f2f2f0; }
+.nav-wrap { background: #090a0c !important; color: #f4f4f2; border-bottom-color: rgba(255,121,0,.25); }
+.nav-wrap .nav-links a, .nav-wrap .brand { color: #f4f4f2; }
+.brand-logo { width: 112px; height: 72px; object-fit: contain; mix-blend-mode: screen; }
+.service-extra { display: flex; flex-wrap: wrap; gap: 10px; padding: 26px 0 0; }
+.service-extra span { border: 1px solid rgba(255,121,0,.38); color: rgba(255,255,255,.8); padding: 9px 12px; font: 700 10px "Manrope", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 767px) { .brand-logo { width: 96px; height: 62px; } .service-extra { gap: 7px; } .service-extra span { font-size: 9px; padding: 8px 9px; } }
+
+.nav-wrap .nav-links a:not(.nav-cta) { color: rgba(255,255,255,.78); }
+.nav-wrap .nav-links a:not(.nav-cta):hover { color: #ff7900; }
+.nav-wrap .mobile-toggle { color: #fff; }
