@@ -1,6 +1,8 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Check,
   ChevronDown,
   Clock3,
@@ -34,38 +36,38 @@ const img = isWebDevPreview
 const portfolioImage = (fileName: string, storageFileName: string) => isWebDevPreview ? `/manus-storage/${storageFileName}` : `/assets/portfolio/${fileName}`;
 
 const portfolioItems = [
-  { image: portfolioImage("obra-01.webp", "obra-01_1a4b99af.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico industrial" },
-  { image: portfolioImage("obra-02.webp", "obra-02_5802d7d1.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Cañerías y conexiones" },
-  { image: portfolioImage("obra-03.webp", "obra-03_e05930a8.webp"), category: "tableros", label: "Tableros y control", title: "Gabinete de control" },
-  { image: portfolioImage("obra-04.webp", "obra-04_a85a91fb.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Tendido de cañerías" },
-  { image: portfolioImage("obra-05.webp", "obra-05_43d9cbef.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Bomba industrial" },
-  { image: portfolioImage("obra-06.webp", "obra-06_c9390aa3.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Conjunto de bombeo" },
-  { image: portfolioImage("obra-07.webp", "obra-07_6f5ff259.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento hidráulico" },
-  { image: portfolioImage("obra-08.webp", "obra-08_d864d2fa.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipo hidráulico" },
-  { image: portfolioImage("obra-09.webp", "obra-09_fc1876a9.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Instalación de servicio" },
-  { image: portfolioImage("obra-10.webp", "obra-10_b02ca974.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Rejilla y canal de servicio" },
-  { image: portfolioImage("obra-11.webp", "obra-11_5892cc6c.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de equipo" },
-  { image: portfolioImage("obra-12.webp", "obra-12_4684b4b9.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de generador" },
-  { image: portfolioImage("obra-13.webp", "obra-13_beaf7189.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Conexiones de proceso" },
-  { image: portfolioImage("obra-14.webp", "obra-14_3cc34af2.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico" },
-  { image: portfolioImage("obra-15.webp", "obra-15_f05c5b03.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Sala de máquinas" },
-  { image: portfolioImage("obra-16.webp", "obra-16_408262e1.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura metálica" },
-  { image: portfolioImage("obra-17.webp", "obra-17_fe2f3d77.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura para equipo" },
-  { image: portfolioImage("obra-18.webp", "obra-18_1d9fdff9.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Cinta de transporte" },
-  { image: portfolioImage("obra-19.webp", "obra-19_227fe27f.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Equipo de proceso" },
-  { image: portfolioImage("obra-20.webp", "obra-20_fc40aaf8.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Mesa vibrante" },
-  { image: portfolioImage("obra-21.webp", "obra-21_08fd4466.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de generador" },
-  { image: portfolioImage("obra-22.webp", "obra-22_6877b0e5.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Equipo de elevación y montaje" },
-  { image: portfolioImage("obra-23.webp", "obra-23_53ec0a83.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Línea de proceso en planta" },
-  { image: portfolioImage("obra-24.webp", "obra-24_5ead9aaf.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Equipo de lavado industrial" },
-  { image: portfolioImage("obra-25.webp", "obra-25_36a4ebad.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de grupo electrógeno" },
+  { image: portfolioImage("obra-01.webp", "obra-01_1a4b99af.webp"), category: "tableros", label: "Tableros y control", title: "Tablero de distribución con protecciones" },
+  { image: portfolioImage("obra-02.webp", "obra-02_5802d7d1.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Tendido de cañería y conexiones de servicio" },
+  { image: portfolioImage("obra-03.webp", "obra-03_e05930a8.webp"), category: "tableros", label: "Tableros y control", title: "Gabinete de comando y señalización" },
+  { image: portfolioImage("obra-04.webp", "obra-04_a85a91fb.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Tendido de cañerías sobre bandeja" },
+  { image: portfolioImage("obra-05.webp", "obra-05_43d9cbef.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Bomba centrífuga en mantenimiento" },
+  { image: portfolioImage("obra-06.webp", "obra-06_c9390aa3.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Conjunto de bombeo y válvulas" },
+  { image: portfolioImage("obra-07.webp", "obra-07_6f5ff259.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de circuito hidráulico" },
+  { image: portfolioImage("obra-08.webp", "obra-08_d864d2fa.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Equipo hidráulico con accionamiento" },
+  { image: portfolioImage("obra-09.webp", "obra-09_fc1876a9.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Instalación de cañerías de servicio" },
+  { image: portfolioImage("obra-10.webp", "obra-10_b02ca974.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Canal de desagüe y rejilla metálica" },
+  { image: portfolioImage("obra-11.webp", "obra-11_5892cc6c.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Revisión de equipo electromecánico" },
+  { image: portfolioImage("obra-12.webp", "obra-12_4684b4b9.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Intervención en grupo electrógeno" },
+  { image: portfolioImage("obra-13.webp", "obra-13_beaf7189.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Conexiones de proceso y tuberías" },
+  { image: portfolioImage("obra-14.webp", "obra-14_3cc34af2.webp"), category: "tableros", label: "Tableros y control", title: "Tablero eléctrico con borneras y protecciones" },
+  { image: portfolioImage("obra-15.webp", "obra-15_f05c5b03.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Sala de máquinas y equipos de bombeo" },
+  { image: portfolioImage("obra-16.webp", "obra-16_408262e1.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura metálica soldada" },
+  { image: portfolioImage("obra-17.webp", "obra-17_fe2f3d77.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Bastidor metálico para equipo" },
+  { image: portfolioImage("obra-18.webp", "obra-18_1d9fdff9.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Cinta transportadora de proceso" },
+  { image: portfolioImage("obra-19.webp", "obra-19_227fe27f.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Equipo auxiliar para proceso industrial" },
+  { image: portfolioImage("obra-20.webp", "obra-20_fc40aaf8.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Mesa vibrante para clasificación" },
+  { image: portfolioImage("obra-21.webp", "obra-21_08fd4466.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Intervención en grupo electrógeno" },
+  { image: portfolioImage("obra-22.webp", "obra-22_6877b0e5.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Equipo de elevación para montaje industrial" },
+  { image: portfolioImage("obra-23.webp", "obra-23_53ec0a83.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Línea de proceso y transporte" },
+  { image: portfolioImage("obra-24.webp", "obra-24_5ead9aaf.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Equipo de lavado sobre línea de producción" },
+  { image: portfolioImage("obra-25.webp", "obra-25_36a4ebad.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Intervención en grupo electrógeno" },
   { image: portfolioImage("obra-26.webp", "obra-26_78b67f1e.webp"), category: "mecanizado", label: "Mecanizado y reparación", title: "Reparación de conjunto mecánico" },
-  { image: portfolioImage("obra-27.webp", "obra-27_692ce33f.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura para proceso" },
+  { image: portfolioImage("obra-27.webp", "obra-27_692ce33f.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura de soporte para proceso" },
   { image: portfolioImage("obra-28.webp", "obra-28_43e74e14.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Fabricación en acero inoxidable" },
-  { image: portfolioImage("obra-29.webp", "obra-29_96e04e67.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura metálica" },
-  { image: portfolioImage("obra-30.webp", "obra-30_9dfd7005.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Fabricación de piezas" },
-  { image: portfolioImage("obra-31.webp", "obra-31_6503a53c.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de motor" },
-  { image: portfolioImage("obra-32.webp", "obra-32_5b683917.webp"), category: "mecanizado", label: "Mecanizado y reparación", title: "Reparación de transmisión" },
+  { image: portfolioImage("obra-29.webp", "obra-29_96e04e67.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Estructura metálica soldada" },
+  { image: portfolioImage("obra-30.webp", "obra-30_9dfd7005.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Fabricación de piezas y componentes" },
+  { image: portfolioImage("obra-31.webp", "obra-31_6503a53c.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Mantenimiento de motor eléctrico" },
+  { image: portfolioImage("obra-32.webp", "obra-32_5b683917.webp"), category: "mecanizado", label: "Mecanizado y reparación", title: "Reparación de transmisión y engranajes" },
 ];
 
 const faqs = [
@@ -80,6 +82,24 @@ export default function Home() {
   const [sent, setSent] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [portfolioFilter, setPortfolioFilter] = useState("todos");
+  const [selectedPortfolioIndex, setSelectedPortfolioIndex] = useState<number | null>(null);
+  const visiblePortfolioItems = portfolioItems.filter((item) => portfolioFilter === "todos" || item.category === portfolioFilter);
+
+  useEffect(() => {
+    if (selectedPortfolioIndex === null) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedPortfolioIndex(null);
+      if (event.key === "ArrowLeft") setSelectedPortfolioIndex((current) => current === null ? null : (current - 1 + visiblePortfolioItems.length) % visiblePortfolioItems.length);
+      if (event.key === "ArrowRight") setSelectedPortfolioIndex((current) => current === null ? null : (current + 1) % visiblePortfolioItems.length);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPortfolioIndex, visiblePortfolioItems.length]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -141,7 +161,7 @@ export default function Home() {
 
         <section id="proceso" className="process-section section-space"><div className="container"><div className="row"><div className="col-lg-4"><div className="eyebrow"><span className="eyebrow-line" /> CÓMO TRABAJAMOS</div><h2 className="display-title">Cómo encaramos cada<br /><em>trabajo.</em></h2><p className="section-intro">Revisamos el trabajo, confirmamos medidas y materiales, y te pasamos un presupuesto antes de empezar.</p></div><div className="col-lg-7 offset-lg-1 process-list"><div className="process-item"><span>01</span><div><h3>Relevamiento inicial</h3><p>Entendemos el problema, la pieza o el proceso que necesita atención.</p></div></div><div className="process-item"><span>02</span><div><h3>Presupuesto y plan</h3><p>Recibís una propuesta con alcance, materiales, plazos y próximos pasos.</p></div></div><div className="process-item"><span>03</span><div><h3>Ejecución y control</h3><p>Fabricamos, reparamos o intervenimos con seguimiento y control de calidad.</p></div></div><div className="process-item"><span>04</span><div><h3>Entrega y revisión</h3><p>Entregamos una solución lista para volver a producción con respaldo.</p></div></div></div></div></div></section>
 
-        <section className="gallery-section section-space"><div className="container"><div className="section-heading-row"><div><div className="eyebrow"><span className="eyebrow-line" /> TRABAJOS REALES</div><h2 className="display-title">Lo que hacemos,<br /><em>se puede ver.</em></h2></div></div><div className="portfolio-filters" role="group" aria-label="Filtrar trabajos"><button type="button" aria-pressed={portfolioFilter === "todos"} className={portfolioFilter === "todos" ? "active" : ""} onClick={() => setPortfolioFilter("todos")}>Todos</button><button type="button" aria-pressed={portfolioFilter === "tableros"} className={portfolioFilter === "tableros" ? "active" : ""} onClick={() => setPortfolioFilter("tableros")}>Tableros y control</button><button type="button" aria-pressed={portfolioFilter === "instalaciones"} className={portfolioFilter === "instalaciones" ? "active" : ""} onClick={() => setPortfolioFilter("instalaciones")}>Instalaciones</button><button type="button" aria-pressed={portfolioFilter === "mantenimiento"} className={portfolioFilter === "mantenimiento" ? "active" : ""} onClick={() => setPortfolioFilter("mantenimiento")}>Mantenimiento</button><button type="button" aria-pressed={portfolioFilter === "mecanizado"} className={portfolioFilter === "mecanizado" ? "active" : ""} onClick={() => setPortfolioFilter("mecanizado")}>Mecanizado</button><button type="button" aria-pressed={portfolioFilter === "fabricacion"} className={portfolioFilter === "fabricacion" ? "active" : ""} onClick={() => setPortfolioFilter("fabricacion")}>Fabricación y montaje</button></div><div className="portfolio-grid">{portfolioItems.filter((item) => portfolioFilter === "todos" || item.category === portfolioFilter).map((item) => <figure className="portfolio-card" key={item.image}><img src={item.image} alt={item.title} loading="lazy" /><figcaption><span>{item.label}</span><strong>{item.title}</strong></figcaption></figure>)}</div></div></section>
+        <section className="gallery-section section-space"><div className="container"><div className="section-heading-row"><div><div className="eyebrow"><span className="eyebrow-line" /> TRABAJOS REALES</div><h2 className="display-title">Lo que hacemos,<br /><em>se puede ver.</em></h2></div></div><div className="portfolio-filters" role="group" aria-label="Filtrar trabajos"><button type="button" aria-pressed={portfolioFilter === "todos"} className={portfolioFilter === "todos" ? "active" : ""} onClick={() => setPortfolioFilter("todos")}>Todos</button><button type="button" aria-pressed={portfolioFilter === "tableros"} className={portfolioFilter === "tableros" ? "active" : ""} onClick={() => setPortfolioFilter("tableros")}>Tableros y control</button><button type="button" aria-pressed={portfolioFilter === "instalaciones"} className={portfolioFilter === "instalaciones" ? "active" : ""} onClick={() => setPortfolioFilter("instalaciones")}>Instalaciones</button><button type="button" aria-pressed={portfolioFilter === "mantenimiento"} className={portfolioFilter === "mantenimiento" ? "active" : ""} onClick={() => setPortfolioFilter("mantenimiento")}>Mantenimiento</button><button type="button" aria-pressed={portfolioFilter === "mecanizado"} className={portfolioFilter === "mecanizado" ? "active" : ""} onClick={() => setPortfolioFilter("mecanizado")}>Mecanizado</button><button type="button" aria-pressed={portfolioFilter === "fabricacion"} className={portfolioFilter === "fabricacion" ? "active" : ""} onClick={() => setPortfolioFilter("fabricacion")}>Fabricación y montaje</button></div><div className="portfolio-grid">{visiblePortfolioItems.map((item, index) => <figure className="portfolio-card" key={item.image}><button className="portfolio-card-button" type="button" onClick={() => setSelectedPortfolioIndex(index)} aria-label={`Ampliar: ${item.title}`}><img src={item.image} alt={item.title} loading="lazy" /><figcaption><span>{item.label}</span><strong>{item.title}</strong><small>Ver imagen ampliada</small></figcaption></button></figure>)}</div></div></section>
 
         <section className="clients-section"><div className="container clients-inner"><div className="clients-copy"><div className="eyebrow"><span className="eyebrow-line" /> CLIENTES</div><h2 className="display-title">Trabajos para empresas<br /><em>y organizaciones.</em></h2><p>Algunas empresas y organizaciones con las que hemos trabajado.</p><div className="clients-proof"><Star size={22} strokeWidth={1.8} aria-hidden="true" /><span>Empresas y organizaciones<br />que confían en nuestro trabajo</span></div></div><div className="client-marquee" aria-label="Empresas clientes"><div className="client-track client-track-forward"><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>AGROISME</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>EDEMSA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>ENER SHOP</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>JUGOS AUSTRALES</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>AGROISME</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>EDEMSA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>ENER SHOP</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>JUGOS AUSTRALES</span></div></div><div className="client-track client-track-reverse"><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>TELECOM</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>BODEGAS PULENTA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>MOLINOS FLORENCIA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>COOPERATIVA TUP</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>TELECOM</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>BODEGAS PULENTA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>MOLINOS FLORENCIA</span></div><div className="client-pill"><Star size={14} strokeWidth={1.8} aria-hidden="true" /><span>COOPERATIVA TUP</span></div></div></div></div></section>
 
@@ -149,6 +169,15 @@ export default function Home() {
 
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow light"><span className="eyebrow-line" /> ¿TENÉS UN TRABAJO PARA CONSULTAR?</div><h2>Mandanos los datos del trabajo.<br /><em>Lo revisamos juntos.</em></h2></div><a className="btn btn-safety btn-lg" href="#cotizar">Consultar trabajo <ArrowRight size={18} /></a></div></section>
       </main>
+      {selectedPortfolioIndex !== null && visiblePortfolioItems[selectedPortfolioIndex] && <div className="portfolio-lightbox" role="dialog" aria-modal="true" aria-label="Visor de trabajos" onClick={() => setSelectedPortfolioIndex(null)}>
+        <button className="lightbox-close" type="button" onClick={() => setSelectedPortfolioIndex(null)} aria-label="Cerrar visor"><X size={24} /></button>
+        <button className="lightbox-nav lightbox-prev" type="button" onClick={(event) => { event.stopPropagation(); setSelectedPortfolioIndex((selectedPortfolioIndex - 1 + visiblePortfolioItems.length) % visiblePortfolioItems.length); }} aria-label="Imagen anterior"><ChevronLeft size={30} /></button>
+        <div className="lightbox-content" onClick={(event) => event.stopPropagation()}>
+          <img src={visiblePortfolioItems[selectedPortfolioIndex].image} alt={visiblePortfolioItems[selectedPortfolioIndex].title} />
+          <div className="lightbox-caption"><span>{visiblePortfolioItems[selectedPortfolioIndex].label} · {selectedPortfolioIndex + 1} / {visiblePortfolioItems.length}</span><h2>{visiblePortfolioItems[selectedPortfolioIndex].title}</h2><p>Trabajo documentado del taller. Seleccioná otra imagen o usá las flechas del teclado para recorrer la galería.</p></div>
+        </div>
+        <button className="lightbox-nav lightbox-next" type="button" onClick={(event) => { event.stopPropagation(); setSelectedPortfolioIndex((selectedPortfolioIndex + 1) % visiblePortfolioItems.length); }} aria-label="Imagen siguiente"><ChevronRight size={30} /></button>
+      </div>}
       <footer><div className="container footer-inner"><a className="brand footer-brand" href="#inicio"><img className="brand-logo" src={logoSrc} alt="Servicios Integrados" /></a><p>Fabricación a medida y mantenimiento industrial.<br />Mendoza, Argentina.<br />Hugo David Murua · +54 9 261 538 4243</p><a className="whatsapp-link" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer"><MessageCircle size={17} /> Hablar por WhatsApp</a><span className="footer-copy">© 2026 · Todos los derechos reservados</span></div></footer>
       <a className="whatsapp-float" href="https://wa.me/5492615384243?text=Hola%2C%20vi%20la%20web%20de%20Servicio%20Integrado%20y%20necesito%20cotizar%20un%20servicio%20industrial." target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp"><MessageCircle size={25} /><span>WhatsApp</span></a>
     </div>
