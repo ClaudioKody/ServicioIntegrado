@@ -294,3 +294,15 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
   .lightbox-next { right: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .portfolio-lightbox { animation: none; } .portfolio-card figcaption small { transition: none; } }
+
+/* Clients in the same black/orange language as industrial solutions */
+.clients-section { background: var(--steel-dark); color: #fff; }
+.clients-section .eyebrow { color: var(--yellow); }
+.clients-section .display-title { color: #fff; }
+.clients-section .display-title em { color: var(--yellow); }
+.clients-section .clients-inner > .clients-copy > p { color: rgba(255,255,255,.68); }
+.clients-section .clients-proof { color: #fff; }
+.clients-section .clients-proof span { border-left-color: rgba(255,255,255,.22); }
+.clients-section .client-pill { background: #101317; border-color: rgba(255,121,0,.28); box-shadow: 0 12px 28px rgba(0,0,0,.2); }
+.clients-section .client-pill:hover { background: #171b1f; border-color: var(--yellow); box-shadow: 0 16px 30px rgba(0,0,0,.32); }
+.clients-section .client-pill span { color: #fff; }

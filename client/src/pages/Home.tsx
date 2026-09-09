@@ -58,7 +58,7 @@ const portfolioItems = [
   { image: portfolioImage("obra-20.webp", "obra-20_fc40aaf8.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Tapa circular fabricada con bulones" },
   { image: portfolioImage("obra-21.webp", "obra-21_08fd4466.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Reductor con engranajes en revisión" },
   { image: portfolioImage("obra-22.webp", "obra-22_2cd55d5a.webp"), category: "tableros", label: "Tableros y control", title: "Gabinete eléctrico de instalación" },
-  { image: portfolioImage("obra-23.webp", "obra-23_7e549c71.webp"), category: "instalaciones", label: "Instalaciones industriales", title: "Sala de bombas con motores y válvulas" },
+  { image: portfolioImage("obra-23.webp", "obra-23_38546f66.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Tolva y carcasa de acero inoxidable" },
   { image: portfolioImage("obra-24.webp", "obra-24_8c766138.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Transportador inclinado con accionamiento" },
   { image: portfolioImage("obra-25.webp", "obra-25_b7b2f239.webp"), category: "mantenimiento", label: "Mantenimiento en planta", title: "Motorreductor montado en equipo" },
   { image: portfolioImage("obra-26.webp", "obra-26_78b67f1e.webp"), category: "fabricacion", label: "Fabricación y montaje", title: "Tolva y estructura en acero inoxidable" },
