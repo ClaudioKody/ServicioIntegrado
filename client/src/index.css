@@ -312,3 +312,16 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 .portfolio-image { display: block; width: 100%; height: 100%; object-fit: cover; background: linear-gradient(135deg, #11161a, #28333a); opacity: .18; filter: blur(10px) saturate(.55); transform: scale(1.035); transition: opacity .42s var(--ease-out), filter .52s var(--ease-out), transform .52s var(--ease-out); }
 .portfolio-image.is-loaded { opacity: 1; filter: blur(0) saturate(.9); transform: scale(1); }
 @media (prefers-reduced-motion: reduce) { .portfolio-image { transition: none; filter: none; transform: none; } .portfolio-image:not(.is-loaded) { opacity: .72; } }
+
+/* Private location reference: address only, no public map */
+.location-section { background: var(--mist); padding-top: 58px; padding-bottom: 58px; }
+.location-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 30px 34px; background: #101317; border-left: 4px solid var(--yellow); color: #fff; box-shadow: 0 14px 34px rgba(9,22,29,.12); }
+.location-mark { display: grid; place-items: center; width: 52px; height: 52px; color: var(--yellow); border: 1px solid rgba(255,121,0,.42); }
+.location-card .eyebrow { margin-bottom: 9px; color: var(--yellow); }
+.location-card h2 { margin: 0; color: #fff; font: 700 clamp(24px, 3vw, 36px)/1 "Space Grotesk", sans-serif; letter-spacing: -.045em; }
+.location-card address { margin: 9px 0 0; color: rgba(255,255,255,.92); font: 700 clamp(16px, 1.8vw, 21px)/1.25 "Space Grotesk", sans-serif; font-style: normal; }
+.location-card p { margin: 8px 0 0; color: rgba(255,255,255,.58); font-size: 12px; }
+.location-contact { display: inline-flex; align-items: center; gap: 9px; padding: 13px 16px; color: var(--steel-dark); background: var(--yellow); font: 800 10px "Manrope", sans-serif; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; transition: transform .18s var(--ease-out), background-color .18s var(--ease-out); }
+.location-contact:hover { color: var(--steel-dark); background: #ff8b22; transform: translateY(-2px); }
+@media (max-width: 767px) { .location-section { padding-top: 42px; padding-bottom: 42px; } .location-card { grid-template-columns: auto minmax(0, 1fr); gap: 16px; padding: 24px 20px; } .location-mark { width: 44px; height: 44px; } .location-card h2 { font-size: 26px; } .location-card address { font-size: 16px; } .location-card p { font-size: 11px; } .location-contact { grid-column: 1 / -1; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .location-contact { transition: none; } }
