@@ -320,3 +320,9 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 .cta-location strong { margin-right: 7px; color: var(--yellow); font: 800 10px "Manrope", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .cta-location-note { margin: 5px 0 0 26px; color: rgba(255,255,255,.52); font-size: 10px; }
 @media (max-width: 767px) { .cta-location { align-items: flex-start; margin-top: 18px; } .cta-location span { font-size: 11px; } .cta-location strong { display: block; margin: 0 0 3px; } .cta-location-note { margin-left: 26px; } }
+
+/* Mobile navigation contrast: light drawer with dark links; desktop stays white on dark header */
+@media (max-width: 767px) {
+  .nav-wrap .nav-links a:not(.nav-cta) { color: var(--ink); }
+  .nav-wrap .nav-links a:not(.nav-cta):hover { color: var(--yellow-deep); }
+}
