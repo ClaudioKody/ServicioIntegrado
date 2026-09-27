@@ -203,10 +203,15 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
-
-export default defineConfig({
-  plugins,
+export default defineConfig(({ command }) => ({
+  // Manus runtime/debug helpers are needed only by the development preview.
+  // Keep them out of the public production HTML served by Vercel/Render.
+  plugins: [
+    react(),
+    tailwindcss(),
+    jsxLocPlugin(),
+    ...(command === "serve" ? [vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()] : []),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -244,4 +249,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
