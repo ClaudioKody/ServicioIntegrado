@@ -10,8 +10,9 @@ const zoneSlugs = ["capital", "godoy-cruz", "guaymallen", "las-heras", "maipu", 
 const zoneNames = ["Capital", "Godoy Cruz", "Guaymallén", "Las Heras", "Maipú", "Luján de Cuyo", "Lavalle"];
 
 function metadata(service: ServicePageData) {
+  const titleName = service.slug === "mecanizado-cnc-y-convencional" ? "Mecanizado" : service.slug === "instalacion-de-equipos-de-frio" ? "Equipos de frío" : service.name;
   return {
-    title: `${service.name} en Mendoza | Servicio Integrado`,
+    title: `${titleName} en Mendoza | Servicio Integrado`,
     description: `${service.shortDescription} Consultá a Servicio Integrado en el Gran Mendoza.`,
   };
 }

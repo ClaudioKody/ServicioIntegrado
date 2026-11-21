@@ -376,3 +376,12 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
   .internal-link-grid, .other-services-grid, .service-directory-grid { grid-template-columns: 1fr; }
   .service-directory-card p { min-height: 0; }
 }
+
+/* Discreet internal navigation approved for the homepage */
+.service-directory-link, .footer-services-link { display: inline-flex; align-items: center; gap: 7px; color: var(--yellow); text-decoration: none; font: 800 11px "Manrope", sans-serif; letter-spacing: .04em; }
+.service-directory-link { margin-top: 24px; }
+.service-directory-link:hover, .footer-services-link:hover { color: #fff; }
+.footer-services-link { margin-left: auto; margin-right: 20px; }
+.zone-places { padding: 16px 18px; border-left: 3px solid var(--yellow); background: rgba(255,121,0,.08); color: var(--ink) !important; font-size: 14px !important; }
+.zone-places strong { font-family: "Manrope", sans-serif; }
+@media (max-width: 767px) { .footer-services-link { margin: 0; } }
