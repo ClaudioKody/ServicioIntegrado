@@ -11,6 +11,7 @@ const services = [
   ["instalacion-de-equipos-de-frio", "Equipos de frío en Mendoza | Servicio Integrado", "Trabajos de instalación y adecuación de equipos de frío dentro de procesos industriales."],
   ["neumatica", "Neumática en Mendoza | Servicio Integrado", "Mantenimiento y trabajos vinculados con soluciones neumáticas para industrias y talleres."],
   ["hidraulica", "Hidráulica en Mendoza | Servicio Integrado", "Mantenimiento y fabricación de componentes vinculados con instalaciones hidráulicas."],
+  ["tableros-electricos-y-control", "Tableros eléctricos y control en Mendoza | Servicio Integrado", "Tableros de distribución, gabinetes eléctricos y tableros de control documentados en trabajos del taller."],
 ];
 
 const zones = [
