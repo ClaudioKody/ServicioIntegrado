@@ -6,7 +6,7 @@ type InternalPhotoGalleryProps = {
 };
 
 export default function InternalPhotoGallery({ photos, label }: InternalPhotoGalleryProps) {
-  const galleryPhotos = photos.slice(1);
+  const galleryPhotos = photos;
   if (galleryPhotos.length === 0) return null;
 
   return (

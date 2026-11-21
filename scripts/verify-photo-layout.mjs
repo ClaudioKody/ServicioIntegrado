@@ -32,6 +32,9 @@ for (const route of routes) {
   const html = readRoute(route);
   const hero = html.match(/class="service-hero-image"[^>]+src="([^"]+)"/)?.[1];
   if (!hero) throw new Error(`${route}: no se encontró la imagen del hero`);
+  if (hero !== "/assets/internal-industrial-hero.jpg") {
+    throw new Error(`${route}: el hero debe usar /assets/internal-industrial-hero.jpg y usa ${hero}`);
+  }
   const gallery = imagesIn(html, "internal-photo-grid");
   const allImages = [hero, ...gallery];
   const duplicates = allImages.filter((src, index) => allImages.indexOf(src) !== index);
