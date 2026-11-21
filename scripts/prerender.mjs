@@ -12,7 +12,19 @@ const { render } = await import(pathToFileURL(serverEntry).href);
 const buildDate = new Date().toISOString().slice(0, 10);
 
 for (const route of publicRoutes) {
-  const rendered = template.replace('<div id="root"></div>', `<div id="root">${render()}</div>`);
+  globalThis.location.pathname = route.path;
+  const routeTemplate = route.title
+    ? template
+        .replace(/<title>[^<]*<\/title>/, `<title>${route.title}</title>`)
+        .replace(/(<meta name="description" content=")[^"]*(")/, `$1${route.description}$2`)
+        .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${siteOrigin}${route.path}$2`)
+        .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${route.title}$2`)
+        .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${route.description}$2`)
+        .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${siteOrigin}${route.path}$2`)
+        .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${route.title}$2`)
+        .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${route.description}$2`)
+    : template;
+  const rendered = routeTemplate.replace('<div id="root"></div>', `<div id="root">${render()}</div>`);
   const target = route.path === "/" ? templatePath : path.join(root, "dist/public", route.path, "index.html");
   await fs.mkdir(path.dirname(target), { recursive: true });
   await fs.writeFile(target, rendered, "utf8");

@@ -326,3 +326,53 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
   .nav-wrap .nav-links a:not(.nav-cta) { color: var(--ink); }
   .nav-wrap .nav-links a:not(.nav-cta):hover { color: var(--yellow-deep); }
 }
+
+/* Service pages: same industrial language, typography and actions as the existing landing */
+.service-page .nav-wrap { position: relative; }
+.service-hero-section { background: var(--mist); padding-top: 30px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-bottom: 58px; color: var(--muted-ink); font: 700 11px "Manrope", sans-serif; letter-spacing: .04em; }
+.breadcrumbs a { color: var(--muted-ink); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--yellow-deep); }
+.service-hero-section .display-title { margin-bottom: 22px; }
+.service-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.service-actions .btn { display: inline-flex; align-items: center; gap: 9px; }
+.service-hero-image { width: 100%; height: 360px; object-fit: cover; border-radius: 2px; box-shadow: 18px 18px 0 rgba(255,121,0,.16); }
+.service-copy { max-width: 780px; }
+.service-copy p { color: var(--muted-ink); font-size: 16px; line-height: 1.82; margin: 0 0 22px; }
+.service-aside-card { position: sticky; top: 24px; padding: 30px; background: var(--steel-dark); color: #fff; }
+.service-aside-card > svg { color: var(--yellow); margin-bottom: 22px; }
+.service-aside-card h2 { font: 700 25px/1.1 "Space Grotesk", sans-serif; margin: 0 0 13px; }
+.service-aside-card p { color: rgba(255,255,255,.7); font-size: 14px; line-height: 1.65; margin-bottom: 22px; }
+.service-phone { display: flex; justify-content: center; align-items: center; gap: 7px; margin-top: 18px; color: #fff; font-size: 13px; text-decoration: none; }
+.service-phone:hover { color: var(--yellow); }
+.service-faq-section { background: var(--paper); }
+.service-faq { border-bottom: 1px solid rgba(17,22,26,.14); }
+.service-faq summary { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 20px 0; color: var(--ink); cursor: pointer; list-style: none; font: 700 16px "Space Grotesk", sans-serif; }
+.service-faq summary::-webkit-details-marker { display: none; }
+.service-faq summary svg { transition: transform .2s ease; color: var(--yellow-deep); }
+.service-faq[open] summary svg { transform: rotate(180deg); }
+.service-faq p { margin: -4px 30px 20px 0; color: var(--muted-ink); font-size: 14px; line-height: 1.7; }
+.service-links-section { background: var(--steel-dark); color: #fff; }
+.service-links-section .display-title { margin-bottom: 30px; }
+.internal-link-grid, .other-services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.internal-link-grid a, .other-services-grid a { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 15px 17px; border: 1px solid rgba(255,121,0,.28); color: inherit; text-decoration: none; font: 700 13px "Manrope", sans-serif; transition: background .2s ease, border-color .2s ease; }
+.internal-link-grid a:hover, .other-services-grid a:hover { background: rgba(255,121,0,.12); border-color: var(--yellow); }
+.service-directory { background: var(--mist); }
+.service-directory .display-title { margin-bottom: 30px; }
+.other-services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-directory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.service-directory-card { display: block; padding: 26px; border: 1px solid rgba(17,22,26,.13); background: rgba(255,255,255,.45); color: var(--ink); text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.service-directory-card:hover { transform: translateY(-3px); border-color: var(--yellow-deep); background: #fff; }
+.service-directory-card > span { color: var(--yellow-deep); font: 800 10px "Manrope", sans-serif; letter-spacing: .1em; }
+.service-directory-card h2 { margin: 12px 0 10px; font: 700 23px/1.1 "Space Grotesk", sans-serif; }
+.service-directory-card p { min-height: 48px; color: var(--muted-ink); font-size: 14px; line-height: 1.55; }
+.service-directory-card strong { display: flex; align-items: center; gap: 7px; color: var(--yellow-deep); font-size: 12px; }
+@media (max-width: 767px) {
+  .breadcrumbs { margin-bottom: 35px; }
+  .service-hero-section { padding-top: 22px; }
+  .service-hero-image { height: 240px; box-shadow: 10px 10px 0 rgba(255,121,0,.16); }
+  .service-copy p { font-size: 15px; line-height: 1.72; }
+  .service-aside-card { position: static; padding: 24px; }
+  .internal-link-grid, .other-services-grid, .service-directory-grid { grid-template-columns: 1fr; }
+  .service-directory-card p { min-height: 0; }
+}
