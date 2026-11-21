@@ -9,7 +9,7 @@ const serverEntry = path.join(root, "dist/server/entry-server.js");
 const template = await fs.readFile(templatePath, "utf8");
 globalThis.location = { pathname: "/", search: "", hash: "" };
 const { render } = await import(pathToFileURL(serverEntry).href);
-const buildDate = new Date().toISOString().slice(0, 10);
+const buildDate = process.env.DEPLOY_DATE || new Intl.DateTimeFormat("en-CA", { timeZone: "America/Argentina/Mendoza" }).format(new Date());
 
 for (const route of publicRoutes) {
   globalThis.location.pathname = route.path;
