@@ -337,11 +337,13 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
 .service-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .service-actions .btn { display: inline-flex; align-items: center; gap: 9px; }
 .service-hero-image { width: 100%; height: 360px; object-fit: cover; border-radius: 2px; box-shadow: 18px 18px 0 rgba(255,121,0,.16); }
+.service-content-section { padding-top: 56px; }
 .service-copy { max-width: 780px; }
 .service-copy p { color: var(--muted-ink); font-size: 16px; line-height: 1.82; margin: 0 0 22px; }
 .internal-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 34px; }
 .internal-photo-grid figure { margin: 0; background: #e8e7e2; }
 .internal-photo-grid img { display: block; width: 100%; aspect-ratio: 1.45; object-fit: cover; }
+.internal-photo-grid.single-photo { grid-template-columns: minmax(0, 520px); justify-content: center; }
 .internal-photo-grid figcaption { padding: 10px 12px 12px; color: var(--steel-dark); font: 600 12px/1.35 "Space Grotesk", sans-serif; }
 .directory-clients { max-width: 860px; margin: 32px 0 0; color: var(--muted-ink); font-size: 15px; line-height: 1.7; }
 .directory-clients strong { color: var(--steel-dark); }
@@ -377,6 +379,7 @@ footer p { margin: 0 auto 0 0; color: rgba(255,255,255,.54); font-size: 10px; li
   .breadcrumbs { margin-bottom: 35px; }
   .service-hero-section { padding-top: 22px; }
   .service-hero-image { height: 240px; box-shadow: 10px 10px 0 rgba(255,121,0,.16); }
+  .service-content-section { padding-top: 38px; }
   .service-copy p { font-size: 15px; line-height: 1.72; }
   .internal-photo-grid { grid-template-columns: 1fr; gap: 12px; }
   .service-aside-card { position: static; padding: 24px; }
