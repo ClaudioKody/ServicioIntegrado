@@ -56,11 +56,13 @@ function zoneJsonLd(zone: ZonePageData) {
 export default function ZonePage() {
   const [, params] = useRoute<{ slug: string }>("/zonas/:slug");
   const zone = params?.slug ? zoneBySlug.get(params.slug) : undefined;
+  useEffect(() => {
+    if (zone) updateBrowserMetadata(zone);
+  }, [zone]);
+
   if (!zone) return null;
   const { title } = metadata(zone);
   const whatsapp = `https://wa.me/${phone}?text=${encodeURIComponent(`Hola, vi la página de Servicio Integrado en ${zone.name} y necesito consultar un trabajo industrial.`)}`;
-
-  useEffect(() => updateBrowserMetadata(zone), [zone]);
 
   return <div className="site-shell service-page zone-page">
     <div className="topline"><div className="container d-flex justify-content-between align-items-center"><span>SERVICIO INTEGRADO · MENDOZA</span><span className="topline-right"><Clock3 size={14} /> Consultas por WhatsApp</span></div></div>

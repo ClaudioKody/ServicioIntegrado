@@ -77,11 +77,13 @@ function serviceJsonLd(service: ServicePageData) {
 export default function ServicePage() {
   const [, params] = useRoute<{ slug: string }>("/servicios/:slug");
   const service = params?.slug ? serviceBySlug.get(params.slug) : undefined;
+  useEffect(() => {
+    if (service) updateBrowserMetadata(service);
+  }, [service]);
+
   if (!service) return null;
   const { title, description } = metadata(service);
   const whatsapp = `https://wa.me/${phone}?text=${encodeURIComponent(`Hola, vi la página de ${service.name} de Servicio Integrado y necesito consultar un trabajo.`)}`;
-
-  useEffect(() => updateBrowserMetadata(service), [service]);
 
   return (
     <div className="site-shell service-page">
